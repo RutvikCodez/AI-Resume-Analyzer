@@ -3,22 +3,24 @@ import Sidebar from "@/components/Sidebar";
 import { redirect } from "next/navigation";
 import React from "react";
 
-const layout = ({
-  children,
-}: Readonly<{
+interface LayoutProps {
   children: React.ReactNode;
-}>) => {
-  const user = true;
+}
+
+const Layout = ({ children }: LayoutProps) => {
+  const user = true; 
+
   if (!user) redirect("/login");
+
   return (
-    <div className="grid grid-cols-[1.5fr_8.5fr] h-screen">
+    <div className="h-screen grid grid-cols-1 md:grid-cols-[240px_1fr] bg-gray-50 text-gray-900">
       <Sidebar />
-      <div className="">
+      <main className="flex flex-col overflow-hidden">
         <Navbar />
         {children}
-      </div>
+      </main>
     </div>
   );
 };
 
-export default layout;
+export default Layout;
