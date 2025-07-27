@@ -9,3 +9,8 @@ type sideBarType = {
   title: string;
   items: sideBarItemsType[];
 };
+
+type metricCardPropsType = {
+  title: string;
+  value: number;
+};

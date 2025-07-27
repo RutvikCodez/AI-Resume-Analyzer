@@ -1,15 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { LayoutDashboard, Users, CalendarCheck, CalendarDays, Settings } from "lucide-react";
-import { Button } from "./ui/button";
-
-export const sidebarData = [
-  { label: "Dashboard", Icon: LayoutDashboard, href: "/dashboard" },
-  { label: "Candidates", Icon: Users, href: "/candidates" },
-  { label: "Interviews", Icon: CalendarCheck, href: "/interviews" },
-  { label: "Calendar", Icon: CalendarDays, href: "/calendar" },
-  { label: "Settings", Icon: Settings, href: "/settings" },
-];  
+import { Button } from "./ui/button";  
+import { sidebarData } from "@/constant";
 
 const Sidebar = () => {
   return (

@@ -1,10 +1,12 @@
+import MetricCard from "@/components/MetricCard";
 import { Button } from "@/components/ui/button";
+import { metricCardsData } from "@/constant";
 import { Download, Plus } from "lucide-react";
 import React from "react";
 
 const Page = () => {
   return (
-    <section className="flex-1 overflow-y-auto px-4 py-6 md:px-8 md:py-10 bg-muted/50">
+    <section className="flex-1 overflow-y-auto px-4 py-6 md:px-8 md:py-10 bg-muted/50 flex flex-col gap-6">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
@@ -28,6 +30,11 @@ const Page = () => {
             Export Report
           </Button>
         </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {metricCardsData.map((item, index) => (
+          <MetricCard key={index} {...item} />
+        ))}
       </div>
     </section>
   );
