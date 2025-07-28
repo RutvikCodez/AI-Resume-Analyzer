@@ -32,3 +32,28 @@ export const metricCardsData: metricCardPropsType[] = [
     value: 22,
   },
 ];
+
+export const weeklyData = [
+  { name: "Mon", interviews: 12 },
+  { name: "Tue", interviews: 15 },
+  { name: "Wed", interviews: 8 },
+  { name: "Thu", interviews: 18 },
+  { name: "Fri", interviews: 22 },
+  { name: "Sat", interviews: 6 },
+  { name: "Sun", interviews: 4 },
+];
+
+export const signInData = [
+  {
+    name: "email",
+    label: "Email",
+    placeholder: "recruiter.d@aspiretechitsolution.com",
+    type: "email",
+  },
+  {
+    name: "password",
+    label: "Password",
+    placeholder: "********",
+    type: "password",
+  },
+];
