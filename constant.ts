@@ -91,3 +91,11 @@ export const chartConfig = {
     color: "hsl(var(--chart-3))",
   },
 }
+
+export const conversionData = [
+  { stage: "Applied", count: 150 },
+  { stage: "Screened", count: 80 },
+  { stage: "Interviewed", count: 45 },
+  { stage: "Offered", count: 20 },
+  { stage: "Hired", count: 15 },
+]

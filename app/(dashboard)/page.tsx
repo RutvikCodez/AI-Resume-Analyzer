@@ -1,3 +1,4 @@
+import ConversionFunnel from "@/components/ConversionFunnel";
 import MetricCard from "@/components/MetricCard";
 import { Button } from "@/components/ui/button";
 import WeeklyTrends from "@/components/WeeklyTrends";
@@ -86,6 +87,7 @@ const Page = () => {
       </section>
       <section className="grid gap-6 md:grid-cols-2">
         <WeeklyTrends />
+        <ConversionFunnel />
       </section>
     </main>
   );
