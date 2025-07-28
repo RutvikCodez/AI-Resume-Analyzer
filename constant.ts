@@ -4,6 +4,10 @@ import {
   CalendarCheck,
   CalendarDays,
   Settings,
+  Calendar,
+  Home,
+  Video,
+  BarChart3,
 } from "lucide-react";
 
 export const sidebarData = [
@@ -55,5 +59,38 @@ export const signInData = [
     label: "Password",
     placeholder: "********",
     type: "password",
+  },
+];
+
+export const menuItems = [
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: Home,
+  },
+  {
+    title: "Candidates",
+    url: "/candidates",
+    icon: Users,
+  },
+  {
+    title: "Interviews",
+    url: "/interviews",
+    icon: Video,
+  },
+  {
+    title: "Calendar",
+    url: "/calendar",
+    icon: Calendar,
+  },
+  {
+    title: "Analytics",
+    url: "/analytics",
+    icon: BarChart3,
+  },
+  {
+    title: "Settings",
+    url: "/settings",
+    icon: Settings,
   },
 ];

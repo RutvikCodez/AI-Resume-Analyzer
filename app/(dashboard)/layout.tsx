@@ -1,5 +1,7 @@
+import AppSidebar from "@/components/AppSidebar";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
 
 interface LayoutProps {
@@ -8,13 +10,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="h-screen grid grid-cols-1 md:grid-cols-[240px_1fr] bg-gray-50 text-gray-900">
-      <Sidebar />
-      <main className="flex flex-col overflow-hidden">
-        <Navbar />
-        {children}
-      </main>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>{children}</SidebarInset>
+    </SidebarProvider>
   );
 };
 
