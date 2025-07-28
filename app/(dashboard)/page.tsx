@@ -1,46 +1,93 @@
 import MetricCard from "@/components/MetricCard";
 import { Button } from "@/components/ui/button";
 import WeeklyTrends from "@/components/WeeklyTrends";
-import { metricCardsData } from "@/constant";
-import { Download, Plus } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  FileText,
+  Plus,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import React from "react";
+
+export const metricCardsData: metricCardPropsType[] = [
+  {
+    title: "Active Candidates",
+    value: 127,
+    icon: <Users className="h-4 w-4 text-muted-foreground" />,
+    note: (
+      <span>
+        <span className="text-green-600">+12%</span> from last month
+      </span>
+    ),
+    delay: 0,
+  },
+  {
+    title: "Interviews Today",
+    value: 8,
+    icon: <Calendar className="h-4 w-4 text-muted-foreground" />,
+    note: (
+      <span>
+        <span className="text-blue-600">3 scheduled</span> for this afternoon
+      </span>
+    ),
+    delay: 0.1,
+  },
+  {
+    title: "Monthly Interviews",
+    value: 89,
+    icon: <TrendingUp className="h-4 w-4 text-muted-foreground" />,
+    note: (
+      <span>
+        <span className="text-green-600">+23%</span> from last month
+      </span>
+    ),
+    delay: 0.2,
+  },
+  {
+    title: "Pending Follow-ups",
+    value: 15,
+    icon: <Clock className="h-4 w-4 text-muted-foreground" />,
+    note: (
+      <span>
+        <span className="text-orange-600">5 overdue</span> need attention
+      </span>
+    ),
+    delay: 0.3,
+  },
+];
 
 const Page = () => {
   return (
-    <section className="flex-1 overflow-y-auto px-4 py-6 md:px-8 md:py-10 bg-muted/50 flex flex-col gap-8">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Overview
-          </h1>
-          <p className="text-muted-foreground text-sm sm:text-base font-medium">
-            Track your recruitment progress and key performance metrics.
+    <main className="flex-1 flex flex-col gap-6 p-6">
+      <section className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+          <p className="text-muted-foreground">
+            Welcome back! Here&apos;s your recruiting overview.
           </p>
         </div>
-        <div className="flex gap-3">
-          <Button className="bg-[#256D6B] hover:bg-[#1E524F] font-semibold py-3 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E524F] text-black">
+        <div className="flex items-center gap-2">
+          <Button>
             <Plus />
             Add Candidate
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="hover:border-[#1E524F] font-semibold py-3 rounded-lg shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E524F] text-black"
-          >
-            <Download />
+          <Button variant="outline">
+            <FileText />
             Export Report
           </Button>
         </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {metricCardsData.map((item, index) => (
-          <MetricCard key={index} {...item} />
+      </section>
+      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {metricCardsData.map((card, index) => (
+          <MetricCard key={index} {...card} />
         ))}
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      </section>
+      <section className="grid gap-6 md:grid-cols-2">
         <WeeklyTrends />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

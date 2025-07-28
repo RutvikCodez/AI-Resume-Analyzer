@@ -5,52 +5,43 @@ import {
   Bar,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { weeklyData } from "@/constant";
+import { chartConfig, weeklyData } from "@/constant";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
 
 const WeeklyTrends = () => {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 via-white to-green-100 shadow-md hover:shadow-xl transition duration-300 p-6 flex flex-col gap-4">
-        <h2 className="text-xl font-bold">
-          Weekly Interview Trends
-        </h2>
-        <div className="h-80">
+    <Card className="animate-slide-up" style={{ animationDelay: "0.4s" }}>
+      <CardHeader>
+        <CardTitle>Weekly Interview Trends</CardTitle>
+        <CardDescription>
+          Interviews conducted and successful hires this week
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig} className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={weeklyData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis
-                dataKey="name"
-                tick={{ fontSize: 12, fill: "#475569" }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                tick={{ fontSize: 12, fill: "#475569" }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#f9fafb",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "8px",
-                  fontSize: "0.875rem",
-                }}
-                cursor={{ fill: "#d1fae5" }}
-              />
-              <Bar
-                dataKey="interviews"
-                fill="#34d399"
-                radius={[6, 6, 0, 0]}
-                barSize={30}
-              />
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="day" />
+              <YAxis />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <Bar dataKey="interviews" fill="var(--color-interviews)" />
+              <Bar dataKey="hired" fill="var(--color-hired)" />
             </BarChart>
           </ResponsiveContainer>
-        </div>
-    </div>
+        </ChartContainer>
+      </CardContent>
+    </Card>
   );
 };
 

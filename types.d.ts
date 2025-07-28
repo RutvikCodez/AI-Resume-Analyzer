@@ -11,6 +11,9 @@ type sideBarType = {
 };
 
 type metricCardPropsType = {
-  title: string;
-  value: number;
+    title: string;
+    value: string | number;
+    icon: React.ReactNode;
+    note: React.ReactNode;
+    delay?: number;
 };

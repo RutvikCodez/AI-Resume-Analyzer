@@ -18,24 +18,6 @@ export const sidebarData = [
   { label: "Settings", Icon: Settings, href: "/settings" },
 ];
 
-export const metricCardsData: metricCardPropsType[] = [
-  {
-    title: "Active Candidates",
-    value: 8,
-  },
-  {
-    title: "Interviews Today",
-    value: 5,
-  },
-  {
-    title: "Pending Follow-Ups",
-    value: 3,
-  },
-  {
-    title: "Monthly Interview Count",
-    value: 22,
-  },
-];
 
 export const weeklyData = [
   { name: "Mon", interviews: 12 },
@@ -94,3 +76,18 @@ export const menuItems = [
     icon: Settings,
   },
 ];
+
+export const chartConfig = {
+  interviews: {
+    label: "Interviews",
+    color: "hsl(var(--chart-1))",
+  },
+  hired: {
+    label: "Hired",
+    color: "hsl(var(--chart-2))",
+  },
+  rejected: {
+    label: "Rejected",
+    color: "hsl(var(--chart-3))",
+  },
+}
