@@ -5,7 +5,7 @@ import QuickActionsButton from "./QuickActionsButton";
 
 const QuickActions = () => {
   return (
-    <Card className="animate-slide-up" style={{ animationDelay: "0.7s" }}>
+    <Card className="animate-slide-up " style={{ animationDelay: "0.7s" }}>
       <CardHeader>
         <CardTitle>Quick Actions</CardTitle>
         <CardDescription>Frequently used recruiting actions</CardDescription>

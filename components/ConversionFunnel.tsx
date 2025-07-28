@@ -20,7 +20,7 @@ import { chartConfig, conversionData } from '@/constant';
 
 const ConversionFunnel = () => {
   return (
-     <Card className="animate-slide-up" style={{ animationDelay: "0.5s" }}>
+     <Card className="animate-slide-up col-span-2" style={{ animationDelay: "0.5s" }}>
           <CardHeader>
             <CardTitle>Interview Conversion Funnel</CardTitle>
             <CardDescription>Candidate progression through hiring stages</CardDescription>

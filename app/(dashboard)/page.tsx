@@ -3,6 +3,7 @@ import MetricCard from "@/components/MetricCard";
 import QuickActions from "@/components/QuickActions";
 import RecentActivity from "@/components/RecentActivity";
 import RejectionReasons from "@/components/RejectionReasons";
+import TitleDesc from "@/components/TitleDesc";
 import { Button } from "@/components/ui/button";
 import WeeklyTrends from "@/components/WeeklyTrends";
 import {
@@ -64,14 +65,12 @@ export const metricCardsData: metricCardPropsType[] = [
 
 const Page = () => {
   return (
-    <main className="flex-1 flex flex-col gap-6 p-6">
-      <section className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">
-            Welcome back! Here&apos;s your recruiting overview.
-          </p>
-        </div>
+    <main className="grid grid-cols-4 gap-6 p-6">
+      <section className="flex items-center justify-between col-span-4">
+        <TitleDesc
+          desc="Welcome back! Here's your recruiting overview."
+          title="Dashboard"
+        />
         <div className="flex items-center gap-2">
           <Button>
             <Plus />
@@ -83,16 +82,12 @@ const Page = () => {
           </Button>
         </div>
       </section>
-      <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {metricCardsData.map((card, index) => (
-          <MetricCard key={index} {...card} />
-        ))}
-      </section>
-      <section className="grid gap-6 md:grid-cols-2">
-        <WeeklyTrends />
-        <ConversionFunnel />
-      </section>
-      <section className="grid gap-6 md:grid-cols-3">
+      {metricCardsData.map((card, index) => (
+        <MetricCard key={index} {...card} />
+      ))}
+      <WeeklyTrends />
+      <ConversionFunnel />
+      <section className="grid gap-6 md:grid-cols-3 col-span-4">
         <RejectionReasons />
         <QuickActions />
         <RecentActivity />

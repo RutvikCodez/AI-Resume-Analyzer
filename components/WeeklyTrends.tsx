@@ -20,7 +20,7 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
 
 const WeeklyTrends = () => {
   return (
-    <Card className="animate-slide-up" style={{ animationDelay: "0.4s" }}>
+    <Card className="animate-slide-up col-span-2" style={{ animationDelay: "0.4s" }}>
       <CardHeader>
         <CardTitle>Weekly Interview Trends</CardTitle>
         <CardDescription>

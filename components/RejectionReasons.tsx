@@ -18,7 +18,7 @@ import { chartConfig, rejectionData } from '@/constant';
 
 const RejectionReasons = () => {
   return (
-    <Card className="animate-slide-up" style={{ animationDelay: "0.6s" }}>
+    <Card className="animate-slide-up " style={{ animationDelay: "0.6s" }}>
           <CardHeader>
             <CardTitle>Rejection Reasons</CardTitle>
             <CardDescription>Analysis of candidate rejection patterns</CardDescription>
