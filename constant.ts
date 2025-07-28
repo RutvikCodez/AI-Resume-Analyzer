@@ -8,6 +8,9 @@ import {
   Home,
   Video,
   BarChart3,
+  Plus,
+  Target,
+  FileText,
 } from "lucide-react";
 
 export const sidebarData = [
@@ -99,3 +102,39 @@ export const conversionData = [
   { stage: "Offered", count: 20 },
   { stage: "Hired", count: 15 },
 ]
+
+export const rejectionData = [
+  { reason: "Skills Mismatch", value: 35, color: "#ef4444" },
+  { reason: "Experience", value: 25, color: "#f97316" },
+  { reason: "Cultural Fit", value: 20, color: "#eab308" },
+  { reason: "Salary Expectations", value: 15, color: "#22c55e" },
+  { reason: "Other", value: 5, color: "#6366f1" },
+]
+
+export const sidebarActions: SidebarAction[] = [
+  { label: "Schedule Interview", icon: Plus },
+  { label: "Add New Candidate", icon: Users },
+  { label: "Update Status", icon: Target },
+  { label: "Generate Report", icon: FileText },
+];
+
+export const recentActivityItems = [
+  {
+    color: "#22c55e", // green-500
+    title: "John Doe hired",
+    description: "Senior Developer position",
+    time: "2h ago",
+  },
+  {
+    color: "#3b82f6", // blue-500
+    title: "Interview scheduled",
+    description: "Sarah Smith - Tomorrow 2PM",
+    time: "4h ago",
+  },
+  {
+    color: "#f97316", // orange-500
+    title: "Follow-up required",
+    description: "Mike Johnson - UI Designer",
+    time: "6h ago",
+  },
+];

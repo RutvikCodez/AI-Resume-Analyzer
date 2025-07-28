@@ -11,9 +11,21 @@ type sideBarType = {
 };
 
 type metricCardPropsType = {
-    title: string;
-    value: string | number;
-    icon: React.ReactNode;
-    note: React.ReactNode;
-    delay?: number;
+  title: string;
+  value: string | number;
+  icon: React.ReactNode;
+  note: React.ReactNode;
+  delay?: number;
+};
+
+type SidebarAction = {
+  label: string;
+  icon: LucideIcon;
+};
+
+type recentActivityItemPropsType = {
+  color: string;
+  title: string;
+  description: string;
+  time: string;
 };
