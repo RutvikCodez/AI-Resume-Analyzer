@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const sidebarData = [
-  { label: "Dashboard", Icon: LayoutDashboard, href: "/dashboard" },
+  { label: "Dashboard", Icon: LayoutDashboard, href: "/" },
   { label: "Candidates", Icon: Users, href: "/candidates" },
   { label: "Interviews", Icon: CalendarCheck, href: "/interviews" },
   { label: "Calendar", Icon: CalendarDays, href: "/calendar" },
@@ -50,7 +50,7 @@ export const signInData = [
 export const menuItems = [
   {
     title: "Dashboard",
-    url: "/dashboard",
+    url: "/",
     icon: Home,
   },
   {

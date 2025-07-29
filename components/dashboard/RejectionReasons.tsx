@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { chartConfig, rejectionData } from "@/constant";
-import CardWrapper from "./CardWrapper";
+import CardWrapper from "../common/CardWrapper";
 
 const RejectionReasons = () => {
   return (
@@ -12,7 +12,7 @@ const RejectionReasons = () => {
       description="Analysis of candidate rejection patterns"
       delay={0.6}
     >
-      <ChartContainer config={chartConfig} className="h-[250px]">
+      <ChartContainer config={chartConfig} className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie

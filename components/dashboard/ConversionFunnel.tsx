@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
 import {
   BarChart,
   Bar,
@@ -10,7 +10,7 @@ import {
   CartesianGrid,
 } from "recharts";
 import { chartConfig, conversionData } from "@/constant";
-import CardWrapper from "./CardWrapper";
+import CardWrapper from "../common/CardWrapper";
 
 const ConversionFunnel = () => {
   return (

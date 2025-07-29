@@ -1,4 +1,5 @@
-import LoginForm from "@/components/LoginForm";
+
+import LoginForm from "@/components/auth/LoginForm";
 import { Building2 } from "lucide-react";
 import React from "react";
 

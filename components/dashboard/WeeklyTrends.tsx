@@ -9,8 +9,8 @@ import {
   CartesianGrid,
 } from "recharts";
 import { chartConfig, weeklyData } from "@/constant";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
-import CardWrapper from "./CardWrapper";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
+import CardWrapper from "../common/CardWrapper";
 
 const WeeklyTrends = () => {
   return (

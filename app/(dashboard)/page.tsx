@@ -1,93 +1,38 @@
-import ConversionFunnel from "@/components/ConversionFunnel";
-import MetricCard from "@/components/MetricCard";
-import QuickActions from "@/components/QuickActions";
-import RecentActivity from "@/components/RecentActivity";
-import RejectionReasons from "@/components/RejectionReasons";
-import TitleDesc from "@/components/TitleDesc";
-import { Button } from "@/components/ui/button";
-import WeeklyTrends from "@/components/WeeklyTrends";
-import {
-  Calendar,
-  Clock,
-  FileText,
-  Plus,
-  TrendingUp,
-  Users,
-} from "lucide-react";
+"use client";
 import React from "react";
-
-export const metricCardsData: metricCardPropsType[] = [
-  {
-    title: "Active Candidates",
-    value: 127,
-    icon: <Users className="h-4 w-4 text-muted-foreground" />,
-    note: (
-      <span>
-        <span className="text-green-600">+12%</span> from last month
-      </span>
-    ),
-    delay: 0,
-  },
-  {
-    title: "Interviews Today",
-    value: 8,
-    icon: <Calendar className="h-4 w-4 text-muted-foreground" />,
-    note: (
-      <span>
-        <span className="text-blue-600">3 scheduled</span> for this afternoon
-      </span>
-    ),
-    delay: 0.1,
-  },
-  {
-    title: "Monthly Interviews",
-    value: 89,
-    icon: <TrendingUp className="h-4 w-4 text-muted-foreground" />,
-    note: (
-      <span>
-        <span className="text-green-600">+23%</span> from last month
-      </span>
-    ),
-    delay: 0.2,
-  },
-  {
-    title: "Pending Follow-ups",
-    value: 15,
-    icon: <Clock className="h-4 w-4 text-muted-foreground" />,
-    note: (
-      <span>
-        <span className="text-orange-600">5 overdue</span> need attention
-      </span>
-    ),
-    delay: 0.3,
-  },
-];
+import { Button } from "@/components/ui/button";
+import { FileText, Plus } from "lucide-react";
+import Metrics from "@/components/dashboard/Metrics";
+import WeeklyTrends from "@/components/dashboard/WeeklyTrends";
+import ConversionFunnel from "@/components/dashboard/ConversionFunnel";
+import RejectionReasons from "@/components/dashboard/RejectionReasons";
+import QuickActions from "@/components/dashboard/QuickActions";
+import RecentActivity from "@/components/dashboard/RecentActivity";
+import TitleDesc from "@/components/common/TitleDesc";
 
 const Page = () => {
   return (
-    <main className="grid grid-cols-4 gap-6 p-6">
-      <section className="flex items-center justify-between col-span-4">
+    <main className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between col-span-full gap-4">
         <TitleDesc
-          desc="Welcome back! Here's your recruiting overview."
           title="Dashboard"
+          desc="Welcome back! Here's your recruiting overview."
         />
-        <div className="flex items-center gap-2">
-          <Button>
-            <Plus />
-            Add Candidate
+        <div className="flex flex-wrap gap-2">
+          <Button className="flex items-center gap-2">
+            <Plus className="w-4 h-4" />
+            <span>Add Candidate</span>
           </Button>
-          <Button variant="outline">
-            <FileText />
-            Export Report
+          <Button variant="outline" className="flex items-center gap-2">
+            <FileText className="w-4 h-4" />
+            <span>Export Report</span>
           </Button>
         </div>
-      </section>
-      {metricCardsData.map((card, index) => (
-        <MetricCard key={index} {...card} />
-      ))}
+      </div>
+      <Metrics />
       <WeeklyTrends />
       <ConversionFunnel />
-      <section className="grid gap-6 md:grid-cols-3 col-span-4">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 col-span-full">
         <RejectionReasons />
         <QuickActions />
         <RecentActivity />
