@@ -11,6 +11,7 @@ import { Badge } from "../ui/badge";
 import { Edit, Eye, Mail, MapPin } from "lucide-react";
 import { Button } from "../ui/button";
 import { priorityColors, statusColors } from "@/constant";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 const CandidateProfile: React.FC<candidateProfilePropsType> = ({
   id,
@@ -22,52 +23,78 @@ const CandidateProfile: React.FC<candidateProfilePropsType> = ({
   location,
   avatar,
 }) => {
+  const initials = name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
   return (
-    <Card key={id} className="animate-slide-up flex flex-col gap-3">
+    <Card key={id} className="animate-fade-in border hover:shadow-lg transition-shadow duration-300 rounded-xl flex flex-col gap-2">
       <CardHeader>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Avatar>
-              <AvatarImage src={avatar || "/placeholder.svg"} />
-              <AvatarFallback>
-                {name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")}
-              </AvatarFallback>
+        <div className="flex justify-between items-start">
+          <div className="flex items-center gap-4">             
+            <Avatar className="h-12 w-12">
+              <AvatarImage src={avatar || "/placeholder.svg"} alt={name} />
+              <AvatarFallback className="bg-muted font-bold">{initials}</AvatarFallback>
             </Avatar>
             <div>
-              <CardTitle className="text-lg">{name}</CardTitle>
-              <CardDescription>{position}</CardDescription>
+              <CardTitle className="text-base leading-tight">{name}</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground">
+                {position}
+              </CardDescription>
             </div>
           </div>
           <Badge
-            className={priorityColors[priority as keyof typeof priorityColors]}
+            className={`text-xs capitalize ${priorityColors[priority as keyof typeof priorityColors]}`}
           >
             {priority}
           </Badge>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-3">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+
+      <CardContent className="flex flex-col gap-3 text-sm">
+        <div className="flex items-center gap-2 text-muted-foreground">
           <Mail className="h-4 w-4" />
-          <span>{email}</span>
+          <span className="truncate">{email}</span>
         </div>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+
+        <div className="flex items-center gap-2 text-muted-foreground">
           <MapPin className="h-4 w-4" />
           <span>{location}</span>
         </div>
+
         <div className="flex items-center justify-between">
-          <Badge className={statusColors[status as keyof typeof statusColors]}>
+          <Badge
+            className={`text-xs capitalize ${statusColors[status as keyof typeof statusColors]}`}
+          >
             {status}
           </Badge>
+
           <div className="flex gap-1">
-            <Button variant="ghost" size="sm">
-              <Eye className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm">
-              <Edit className="h-4 w-4" />
-            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="sm" className="hover:text-primary">
+                    <Eye className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>View</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="sm" className="hover:text-primary">
+                    <Edit className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Edit</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </CardContent>

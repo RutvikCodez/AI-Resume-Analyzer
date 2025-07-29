@@ -1,25 +1,30 @@
+import React from "react";
 import CandidateWrapper from "@/components/candidates/CandidateWrapper";
 import TitleDesc from "@/components/common/TitleDesc";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import React from "react";
 
-const page = () => {
+const Page = () => {
   return (
-    <main className="p-6 flex flex-col gap-6">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between col-span-full gap-4">
+    <main className="p-6 flex flex-col gap-8">
+      <section className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <TitleDesc
           title="Candidates"
-          desc="Manage and track all candidate profiles and applications."
+          desc="Manage and track all candidate profiles and applications with ease."
         />
-        <Button className="flex items-center gap-2">
+        <Button
+          className="flex items-center gap-2 rounded-md shadow-sm hover:shadow-md transition-shadow"
+          size="sm"
+        >
           <Plus className="w-4 h-4" />
           <span>Add Candidate</span>
         </Button>
-      </div>
-      <CandidateWrapper />
+      </section>
+      <section>
+        <CandidateWrapper />
+      </section>
     </main>
   );
 };
 
-export default page;
+export default Page;
