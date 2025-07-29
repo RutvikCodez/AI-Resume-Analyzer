@@ -1,5 +1,5 @@
 "use client";
-import { candidates } from "@/constant";
+import { candidates, filters } from "@/constant";
 import React, { useState } from "react";
 import CandidateProfile from "./CandidateProfile";
 import { Search } from "lucide-react";
@@ -17,18 +17,26 @@ const CandidateWrapper = () => {
   const [statusFilter, setStatusFilter] = useState("all");
   const [priorityFilter, setPriorityFilter] = useState("all");
 
+  const filterSetters: Record<string, React.Dispatch<React.SetStateAction<string>>> = {
+    statusFilter: setStatusFilter,
+    priorityFilter: setPriorityFilter,
+  };
+
   const filteredCandidates = candidates.filter((candidate) => {
     const matchesSearch =
       candidate.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       candidate.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
       candidate.position.toLowerCase().includes(searchTerm.toLowerCase());
+
     const matchesStatus =
       statusFilter === "all" || candidate.status === statusFilter;
+
     const matchesPriority =
       priorityFilter === "all" || candidate.priority === priorityFilter;
 
     return matchesSearch && matchesStatus && matchesPriority;
   });
+
   return (
     <section className="flex flex-col gap-6">
       <div className="flex items-center gap-2 justify-end">
@@ -41,32 +49,25 @@ const CandidateWrapper = () => {
             className="pl-8 w-[300px]"
           />
         </div>
-        <Select value={statusFilter} onValueChange={setStatusFilter}>
-          <SelectTrigger className="w-[150px]">
-            <SelectValue placeholder="Status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Status</SelectItem>
-            <SelectItem value="Interview Scheduled">
-              Interview Scheduled
-            </SelectItem>
-            <SelectItem value="Under Review">Under Review</SelectItem>
-            <SelectItem value="Offer Extended">Offer Extended</SelectItem>
-            <SelectItem value="Phone Screen">Phone Screen</SelectItem>
-            <SelectItem value="Rejected">Rejected</SelectItem>
-          </SelectContent>
-        </Select>
-        <Select value={priorityFilter} onValueChange={setPriorityFilter}>
-          <SelectTrigger className="w-[120px]">
-            <SelectValue placeholder="Priority" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Priority</SelectItem>
-            <SelectItem value="High">High</SelectItem>
-            <SelectItem value="Medium">Medium</SelectItem>
-            <SelectItem value="Low">Low</SelectItem>
-          </SelectContent>
-        </Select>
+
+        {filters.map(({ label, stateKey, options }) => (
+          <Select
+            key={label}
+            value={stateKey === "statusFilter" ? statusFilter : priorityFilter}
+            onValueChange={filterSetters[stateKey]}
+          >
+            <SelectTrigger className={label === "Status" ? "w-[150px]" : "w-[120px]"}>
+              <SelectValue placeholder={label} />
+            </SelectTrigger>
+            <SelectContent>
+              {options.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        ))}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

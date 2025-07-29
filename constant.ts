@@ -225,3 +225,28 @@ export const candidates = [
     avatar: "/placeholder.svg?height=40&width=40&text=LT",
   },
 ];
+
+export const filters = [
+  {
+    label: "Status",
+    stateKey: "statusFilter",
+    options: [
+      { label: "All Status", value: "all" },
+      { label: "Interview Scheduled", value: "Interview Scheduled" },
+      { label: "Under Review", value: "Under Review" },
+      { label: "Offer Extended", value: "Offer Extended" },
+      { label: "Phone Screen", value: "Phone Screen" },
+      { label: "Rejected", value: "Rejected" },
+    ],
+  },
+  {
+    label: "Priority",
+    stateKey: "priorityFilter",
+    options: [
+      { label: "All Priority", value: "all" },
+      { label: "High", value: "High" },
+      { label: "Medium", value: "Medium" },
+      { label: "Low", value: "Low" },
+    ],
+  },
+];
