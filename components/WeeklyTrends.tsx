@@ -22,7 +22,7 @@ const WeeklyTrends = () => {
     >
       <ChartContainer config={chartConfig} className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={weeklyData}>
+          <BarChart data={weeklyData} layout="horizontal">
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="day" />
             <YAxis />

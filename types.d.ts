@@ -37,3 +37,9 @@ type cardWrapperPropsType = {
   description: string;
   delay?: number;
 }
+
+type chartWrapperPropsType = {
+  height: number;
+  children: React.ReactNode;
+  
+}
