@@ -1,7 +1,6 @@
-import CandidateProfile from "@/components/candidates/CandidateProfile";
+import CandidateWrapper from "@/components/candidates/CandidateWrapper";
 import TitleDesc from "@/components/common/TitleDesc";
 import { Button } from "@/components/ui/button";
-import { candidates } from "@/constant";
 import { Plus } from "lucide-react";
 import React from "react";
 
@@ -18,11 +17,7 @@ const page = () => {
           <span>Add Candidate</span>
         </Button>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {candidates.map((candidate, index) => (
-          <CandidateProfile key={index} {...candidate} />
-        ))}
-      </div>
+      <CandidateWrapper />
     </main>
   );
 };
