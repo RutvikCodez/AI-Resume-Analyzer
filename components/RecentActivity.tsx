@@ -1,27 +1,21 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "./ui/card";
 import { recentActivityItems } from "@/constant";
 import RecentActivityItem from "./RecentActivityItem";
+import CardWrapper from "./CardWrapper";
 
 const RecentActivity = () => {
   return (
-    <Card className="animate-slide-up" style={{ animationDelay: "0.8s" }}>
-      <CardHeader>
-        <CardTitle>Recent Activity</CardTitle>
-        <CardDescription>Latest recruiting activities</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+    <CardWrapper
+      title="Recent Activity"
+      description="Latest recruiting activities"
+      delay={0.8}
+    >
+      <div className="flex flex-col gap-4">
         {recentActivityItems.map((item, index) => (
           <RecentActivityItem key={index} {...item} />
         ))}
-      </CardContent>
-    </Card>
+      </div>
+    </CardWrapper>
   );
 };
 

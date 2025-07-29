@@ -9,39 +9,30 @@ import {
   CartesianGrid,
 } from "recharts";
 import { chartConfig, weeklyData } from "@/constant";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
+import CardWrapper from "./CardWrapper";
 
 const WeeklyTrends = () => {
   return (
-    <Card className="animate-slide-up col-span-2" style={{ animationDelay: "0.4s" }}>
-      <CardHeader>
-        <CardTitle>Weekly Interview Trends</CardTitle>
-        <CardDescription>
-          Interviews conducted and successful hires this week
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig} className="h-[300px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={weeklyData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="day" />
-              <YAxis />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <Bar dataKey="interviews" fill="var(--color-interviews)" />
-              <Bar dataKey="hired" fill="var(--color-hired)" />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+    <CardWrapper
+      title="Weekly Interview Trends"
+      description="Interviews conducted and successful hires this week"
+      delay={0.4}
+      className="col-span-2"
+    >
+      <ChartContainer config={chartConfig} className="h-[300px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={weeklyData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="day" />
+            <YAxis />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            <Bar dataKey="interviews" fill="var(--color-interviews)" />
+            <Bar dataKey="hired" fill="var(--color-hired)" />
+          </BarChart>
+        </ResponsiveContainer>
+      </ChartContainer>
+    </CardWrapper>
   );
 };
 

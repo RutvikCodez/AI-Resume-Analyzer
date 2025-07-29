@@ -29,3 +29,11 @@ type recentActivityItemPropsType = {
   description: string;
   time: string;
 };
+
+type cardWrapperPropsType = {
+  children: React.ReactNode;
+  className?: string;
+  title: string;
+  description: string;
+  delay?: number;
+}
