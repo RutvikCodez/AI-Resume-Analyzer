@@ -36,10 +36,26 @@ type cardWrapperPropsType = {
   title: string;
   description: string;
   delay?: number;
-}
+};
 
 type chartWrapperPropsType = {
   height: number;
   children: React.ReactNode;
-  
-}
+};
+
+type candidateProfilePropsType = {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  position: string;
+  status: string;
+  priority: string;
+  location: string;
+  experience: string;
+  lastContact: string;
+  notes: string;
+  avatar: string;
+};
+
+
